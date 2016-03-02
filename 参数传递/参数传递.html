@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>有关参数传递的问题</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        button{height: 100px;width: 100px;color: #fff;background-color:  green;}
+    </style>
+</head>
+<body>
+    <button onclick="btnclick()">点击一</button>
+    <button onclick="btnclick2()">点击二</button>
+    <script type="text/javascript">
+        var A = {};
+        var B = {};
+        var paramTransmitAgent1 = function(param) {
+            param = {};
+            param.temp = '啦啦啦';
+        }
+        var paramTransmitAgent2 = function(param) {
+            param.temp = 'lalala' ;
+        }
+
+        var btnclick = function() {
+            paramTransmitAgent1(A);
+            console.log('A', A);
+        }
+
+        var btnclick2 = function() {
+            B = {};
+            paramTransmitAgent2(B);
+            console.log('B', B);
+        }
+    </script>
+</body>

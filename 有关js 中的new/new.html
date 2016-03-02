@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>有关参数传递的问题</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        button{height: 100px;width: 100px;color: #fff;background-color:  green;}
+    </style>
+</head>
+<body>
+    <button onclick="btnclick()">点击一</button>
+    <button onclick="btnclick2()">点击二</button>
+    <script type="text/javascript">
+
+
+var Base = function(){
+}
+Base.prototype={
+    A:'aaa',
+    B:'bbb'
+}
+var objb = new Base();
+console.log('objb',objb);
+
+var Cfunc=function(){
+    this.a='kakaka',
+    this.b='gsgsg'
+};
+/*var objc =new Cfunc();*/
+
+var b = function(){
+    this.a = 'hehehe'
+};
+var objc  = {};console.log('abcc',objc.constructor.prototype === objc.__proto__);
+objc.constructor.prototype = Cfunc.prototype;
+console.log('objc.__proto__ ',(objc.__proto__ === objc.prototype));
+Cfunc.call(objc);
+
+console.log('objc',objc);
+
+b.call(objc);
+console.log('objc',objc);
+
+    </script>
+</body>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+    <title>有关参数传递的问题</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        button{height: 100px;width: 100px;color: #fff;background-color:  green;}
+    </style>
+</head>
+<body>
+    <button onclick="btnclick()">点击一</button>
+    <button onclick="btnclick2()">点击二</button>
+    <script type="text/javascript">
+/*var FuncA = function(){
+            console.log('A');
+        }
+        function FuncA(){
+            console.log('B');
+        }
+*/
+/*sum(50);
+function sum(n){
+if(1==n){
+    return 1;
+}
+else {
+    var a =n+sum(n-1)
+    console.log('a',a)
+    return n+sum(n-1);
+}
+}
+*/
+/*console.log(sum(100));
+function sum(n){
+if(1==n)return 1;
+else return n+sum(n-1);
+}*/
+
+/*var bbe = function sum(a,b){
+return a+b;
+}
+console.log('bbe',bbe);*/
+/*var sum = function(a,b){
+return a+b;
+}
+console.log('sum(1,2)',sum);
+console.log('sum.length',sum.length);
+
+*/
+var OBbbbbJ1 = {
+    A:function(){
+        console.log('调用A方法');
+    }
+}
+OBbbbbJ1.A();
+var B = new OBbbbbJ1.A();
+B.C = 'ccc'
+console.log('B',B);
+console.log('Array()',Array());
+
+var D = new Array(10);
+D.E = 'aaa';
+D.F = 'bbb';
+D[3] = 'ccc';
+console.log('D',D);
+console.log('D[2]',D[2]);
+D.push('ddd');
+D.push('eee');
+D.push('fff');
+D.push('ggg');
+console.log('D',D);
+
+var E = [];
+
+E.push('aaa');
+E.push('bbb');
+E.push('ccc');
+E.push('ddd');
+E.G = 'NMB';
+E.push('ddd');
+E.push();
+E.push('5:xxx');
+console.log('E',E);
+console.log('Function.prototype',Function().prototype);
+
+
+var SS = Function();
+SS.A = 'AAA';
+console.log('SS.A',SS.A);
+console.log('SS',SS);
+
+
+function outer(){
+  inner();
+}
+function inner(){
+  alert(arguments.callee.caller)
+}
+outer()//显示outer函数的源代码
+
+    </script>
+</body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>有关angularjs中关于$watch的问题</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        /*这个假定是从服务器端获取后经过变形储存在本地的对象*/
+        $scope.local_obj = {};
+        //假装是异步
+        setTimeout(function(){
+            /*这个假定是从服务器端获取到的数据*/
+            var getobj = {
+                ob1:[{a:1,b:101},{a:2,b:102}],
+                ob2:[{a:1,b:101},{a:2,b:102},{a:3,b:103},{a:4,b:104},{a:1,b:101}],
+                ob3:[{a:1,b:101},{a:2,b:102},{a:3,b:103},{a:4,b:104}]
+            }
+            //这个假定是对 从服务器端获取到的数据 变形然后储存到本地的对象
+            $scope.local_obj = getobj;
+        }, 5000);
+        //监听函数
+        $scope.$watch(parm1, function(newValue, oldValue, scope) {
+
+        }, objectEquality);
+
+        /* 如何监听{a:1,b:101} 的某个属性的改变进而操纵这个对象？  */
+    </script>
+    <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+</body>
